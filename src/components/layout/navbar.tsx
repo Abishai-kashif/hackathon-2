@@ -1,18 +1,15 @@
-"use client";
-
-import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 import NavIcons from "./nav-icons";
 import NavLinks from "./nav-links";
 import NavLinksMobile from "./nav-links-mobile";
 
-function Navbar() {
-    const pathname = usePathname();
-
+function Navbar({ className }: { className?: string }) {
     return (
         <header
-            className={`wrapper min-h-[100px] lg:h-[100px] flex flex-col lg:flex-row items-end lg:items-center justify-center relative ${
-                pathname === "/" ? "bg-yellow" : "bg-azure"
-            }`}
+            className={cn(
+                `wrapper sticky top-0 z-[30] min-h-[100px] lg:h-[100px] flex flex-col lg:flex-row items-end lg:items-center justify-center bg-yellow`,
+                className
+            )}
         >
             <div className="hidden lg:block">
                 <NavLinks />

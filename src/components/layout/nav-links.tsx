@@ -1,16 +1,20 @@
+import { cn } from "@/lib/utils";
 import Link from "next/link";
 
 const links = [
     { name: "Home", href: "/" },
     { name: "Shop", href: "/shop" },
-    { name: "About", href: "/about" },
+    { name: "About", href: "/blog" },
     { name: "Contact", href: "/contact" },
 ];
 function NavLinks({ className }: { className?: string }) {
     return (
         <nav>
             <ul
-                className={`flex gap-[75px] items-center justify-center text-[16px]  ${className}`}
+                className={cn(
+                    `flex items-center justify-center gap-[75px] text-[16px]`,
+                    className
+                )}
             >
                 {links.map((link, idx) => (
                     <li

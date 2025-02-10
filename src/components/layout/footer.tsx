@@ -70,7 +70,7 @@ function Footer() {
                         <h4 className="text-[16px] font-medium text-gray mb-[50px]">
                             Newsletter
                         </h4>
-                        <form className="flex flex-wrap items-center justify-center gap-2">
+                        <form className="flex flex-col sm:flex-row items-center justify-center gap-y-4 gap-x-2">
                             <input
                                 type="email"
                                 placeholder="Enter Your Email Address"
@@ -78,7 +78,7 @@ function Footer() {
                             />
                             <button
                                 type="submit"
-                                className="pt-1.5 py-1 text-black bg-transparent  border-b-2 border-black hover:bg-gray-800 text-[14px] font-medium uppercase"
+                                className="pt-1.5 py-1 text-black bg-transparent  border-b-2 border-black  hover:text-gray text-[14px] font-medium uppercase"
                             >
                                 SUBSCRIBE
                             </button>
@@ -89,7 +89,7 @@ function Footer() {
             </div>
 
             {/* <!-- Footer Bottom --> */}
-            <div className="border-t border-gray mt-6 pt-8 sm:pt-12">
+            <div className="border-t border-light-gray mt-6 pt-8 sm:pt-12">
                 <p className="mb-6 sm:mb-0">
                     2022 Meubel House. All rights reserved
                 </p>

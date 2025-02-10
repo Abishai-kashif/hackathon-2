@@ -1,7 +1,7 @@
 import React from "react";
 import TitleBar from "../title-bar";
 import Link from "next/link";
-import BlogCard from "../blogCard";
+import BlogCard from "../blog-card";
 
 const blogs = [
     {
@@ -65,7 +65,7 @@ function Blogs() {
                 </ul>
 
                 <Link
-                    href={"#"}
+                    href={"/blog"}
                     className="mx-auto mt-12 underline underline-offset-[22px] decoration-2  text-[20px] font-medium"
                 >
                     View All Post

@@ -3,9 +3,9 @@
 import * as React from "react";
 import * as SheetPrimitive from "@radix-ui/react-dialog";
 import { cva, type VariantProps } from "class-variance-authority";
-import { X } from "lucide-react";
 
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 const Sheet = SheetPrimitive.Root;
 
@@ -31,7 +31,7 @@ const SheetOverlay = React.forwardRef<
 SheetOverlay.displayName = SheetPrimitive.Overlay.displayName;
 
 const sheetVariants = cva(
-    "fixed z-50 gap-4 bg-white p-6 shadow-lg transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:duration-500",
+    "fixed z-50 gap-4 bg-white p-8 shadow-lg transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:duration-500",
     {
         variants: {
             side: {
@@ -63,8 +63,14 @@ const SheetContent = React.forwardRef<
             {...props}
         >
             {children}
-            <SheetPrimitive.Close className="absolute right-6 top-6 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none disabled:pointer-events-none data-[state=open]:bg-secondary">
-                <X className="h-7 w-7" />
+            <SheetPrimitive.Close className="absolute right-6 top-9 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none disabled:pointer-events-none data-[state=open]:bg-secondary">
+                <Image
+                    src="/icons/cancel-bag-icon(1).png"
+                    alt="close"
+                    width={16.63}
+                    height={19}
+                    className="w-[16.63px] h-[19px] object-contain object-center"
+                />
                 <span className="sr-only">Close</span>
             </SheetPrimitive.Close>
         </SheetPrimitive.Content>

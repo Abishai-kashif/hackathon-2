@@ -10,7 +10,7 @@ function NavLinksMobile() {
             </SheetTrigger>
 
             <SheetContent>
-                <NavLinks className="flex-col items-center gap-7 text-[20px] pt-24 text-center " />
+                <NavLinks className="flex-col items-center gap-8 text-[20px] pt-32 text-center " />
             </SheetContent>
         </Sheet>
     );

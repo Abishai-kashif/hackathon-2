@@ -1,12 +1,40 @@
-import React from "react";
+import { cn } from "@/lib/utils";
 
-function TitleBar({ title, para }: { title: string; para?: string }) {
+interface IProps {
+    title: string;
+    para?: string;
+    styleContainer?: string;
+    styleTitle?: string;
+    stylePara?: string;
+}
+
+function TitleBar({
+    title,
+    para,
+    styleContainer,
+    styleTitle,
+    stylePara,
+}: IProps) {
     return (
-        <div className="w-full text-center flex flex-col gap-[13px]">
-            <h2 className="text-[36px] font-medium">{title}</h2>
+        <div
+            className={cn(
+                "w-full text-center flex flex-col gap-[13px]",
+                styleContainer
+            )}
+        >
+            <h2 className={cn("text-[36px] font-medium", styleTitle)}>
+                {title}
+            </h2>
 
             {para && (
-                <p className="text-[16px] font-medium text-gray">{para}</p>
+                <p
+                    className={cn(
+                        "text-[16px] font-medium text-gray",
+                        stylePara
+                    )}
+                >
+                    {para}
+                </p>
             )}
         </div>
     );

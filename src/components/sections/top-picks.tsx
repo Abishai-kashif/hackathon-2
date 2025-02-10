@@ -1,31 +1,26 @@
 import Link from "next/link";
 import TitleBar from "../title-bar";
-import ProductsGrid from "../productsGrid";
+import ProductsGrid from "../products-grid";
+import ErrorMessage from "../error-message";
+import getData, { isError } from "@/utils";
+import { TOP_PICKS_QUERY } from "@/queries";
+import { ProductPreview } from "@/types";
 
-const topPicksProducts = [
-    {
-        image: "/products/product-1.png",
-        name: "Trenton modular sofa_3",
-        price: "25,000.00",
-    },
-    {
-        image: "/products/product-2.png",
-        name: "Granite dining table with dining chair",
-        price: "25,000.00",
-    },
-    {
-        image: "/products/product-3.png",
-        name: "Outdoor bar table and stool",
-        price: "25,000.00",
-    },
-    {
-        image: "/products/product-4.png",
-        name: "Plain console with teak mirror",
-        price: "25,000.00",
-    },
-];
+async function TopPicks() {
+    const topProducts = await getData<ProductPreview[]>(TOP_PICKS_QUERY);
 
-function TopPicks() {
+    if (!topProducts) {
+        return (
+            <ErrorMessage
+                message={"Something went wrong while fetching products"}
+            />
+        );
+    }
+
+    if (isError(topProducts)) {
+        return <ErrorMessage message={topProducts.message} />;
+    }
+
     return (
         <section className="wrapper h-auto lg:h-[777px] bg-white flex flex-col justify-center items-center gap-5 py-14">
             <TitleBar
@@ -33,10 +28,10 @@ function TopPicks() {
                 para="Find a bright ideal to suit your taste with our great selection of suspension, floor and table lights."
             />
 
-            <ProductsGrid products={topPicksProducts} />
+            <ProductsGrid products={topProducts} />
 
             <Link
-                href={"#"}
+                href={"/shop#products"}
                 className="mx-auto mt-11 underline underline-offset-[22px] decoration-2 text-[20px] font-medium"
             >
                 View More

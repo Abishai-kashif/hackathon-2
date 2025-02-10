@@ -11,9 +11,9 @@ const config: Config = {
 		extend: {
 			colors: {
 				// custom colors
+				azure: "#FAF4F4",
 				yellow: "#FBEBB5",
 				"light-yellow": "#FFF9E5",
-				azure: "#FAF4F4",
 				gray: "#9F9F9F",
 				"light-gray": "#D9D9D9",
 				// custom colors ends here
@@ -63,6 +63,11 @@ const config: Config = {
 				lg: "var(--radius)",
 				md: "calc(var(--radius) - 2px)",
 				sm: "calc(var(--radius) - 4px)",
+			},
+			screens: {
+				xl: "1250px",
+				lg: "1180px",
+				md: "785px",
 			},
 		},
 	},
