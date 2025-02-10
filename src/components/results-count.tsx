@@ -6,6 +6,8 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 
+// forcefully make this component dynamic
+
 export default function ResultsCount() {
     const searchParams = useSearchParams();
     const [productCount, setProductCount] = useState<number | null>(null);
