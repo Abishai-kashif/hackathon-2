@@ -16,7 +16,7 @@ const icons = [
 ];
 
 function NavIcons() {
-    const { handleCartClick } = useShoppingCart();
+    const { handleCartClick, cartCount } = useShoppingCart();
 
     return (
         <ul className="lg:absolute top-1/2  lg:right-[90px] lg:transform lg:-translate-y-1/2 flex gap-[45px] items-center justify-evenly flex-wrap  lg:justify-center py-3 px-2  bg-light-yellow lg:bg-transparent w-full lg:w-fit">
@@ -28,13 +28,22 @@ function NavIcons() {
                             onClick={() => handleCartClick()}
                             className="bg-transparent border-none p-0 m-0 hover:bg-transparent hover:cursor-pointer"
                         >
-                            <Image
-                                src={iconObj.icon}
-                                alt={`nav icon ${idx + 1}`}
-                                height={28}
-                                width={28}
-                                className="size-[26px] object-contain object-center shrink-0"
-                            />
+                            <div className="relative flex items-center justify-center">
+                                <Image
+                                    src={iconObj.icon}
+                                    alt={`nav icon ${idx + 1}`}
+                                    height={28}
+                                    width={28}
+                                    className="size-[26px] object-contain object-center shrink-0"
+                                />
+
+                                {/* render cart count at top of the button */}
+                                {cartCount > 0 && (
+                                    <span className="absolute -top-0.5 -right-2.5 text-[12px] text-white bg-red-600 rounded-full size-[20px] flex items-center justify-center">
+                                        {cartCount}
+                                    </span>
+                                )}
+                            </div>
                         </Button>
                     </li>
                 ) : idx === 1 ? (
