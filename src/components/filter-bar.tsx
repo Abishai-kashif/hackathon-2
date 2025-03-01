@@ -23,7 +23,7 @@ const FilterIcon = ({
     />
 );
 
-async function FilterBar() {
+function FilterBar() {
     return (
         <div className="bg-azure flex flex-col-reverse lg:flex-row items-start lg:items-center justify-between px-5 lg:px-20 py-3 lg:py-0 gap-5 h-auto lg:h-[100px] w-full">
             {/* Left Section */}

@@ -8,16 +8,16 @@ function SuccessStripe() {
             <div className="md:max-w-[50vw] mx-auto ">
                 <CheckCheck className="text-green-600 w-16 h-16 mx-auto my-6 animate-bounce" />
                 <div className="text-center">
-                    <h3 className="md:text-2xl text-base text-gray-900 font-semibold text-center">
+                    <h3 className="md:text-[36px] text-[24px] text-black font-semibold text-center">
                         Payment Done!
                     </h3>
-                    <p className="text-gray-600 my-2">
+                    <p className="text-gray my-2">
                         Thank you for your purchase, We hope enjoy it
                     </p>
-                    <p className="mb-4">Have a great day!</p>
+                    <p className="mb-4 text-gray">Have a great day!</p>
 
-                    <Button>
-                        <Link href={"/"} className="font-bold text-lg">
+                    <Button className="bg-green-600 rounded-none px-4 py-2">
+                        <Link href={"/"} className="font-medium text-lg">
                             Go back
                         </Link>
                     </Button>

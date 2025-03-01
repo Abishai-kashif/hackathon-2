@@ -14,8 +14,9 @@ import {
     FormMessage,
     FormField,
 } from "./ui/form";
+import { toast } from "react-hot-toast";
+import { useEffect } from "react";
 
-// define form schema
 const formSchema = z.object({
     name: z.string().min(1).max(62),
     email: z.string().email(),
@@ -30,8 +31,29 @@ function ContactForm() {
         resolver: zodResolver(formSchema),
     });
 
+    // localStorage implementation
+    useEffect(() => {
+        const savedForm = localStorage.getItem("contactDraft");
+        if (savedForm) form.reset(JSON.parse(savedForm));
+    }, []);
+
+    useEffect(() => {
+        const subscription = form.watch((values) => {
+            localStorage.setItem("contactDraft", JSON.stringify(values));
+        });
+        return () => subscription.unsubscribe();
+    }, [form.watch]);
+
     const onSubmit = async (values: FormType) => {
-        console.log("Submitted values", values);
+        toast.success(
+            <div>
+                Thanks for your message,
+                <br />
+                <span className="font-semibold">{values.name}</span>
+            </div>
+        );
+
+        localStorage.removeItem("contactDraft");
     };
 
     return (

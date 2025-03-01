@@ -24,7 +24,7 @@ function DetailedDescription({
         <div className="max-w-7xl mx-auto px-4 -mt-10">
             <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 xl:gap-16">
                 {/* Text Content */}
-                <div className="flex-1 max-w-2xl lg:max-w-none lg:w-1/2 space-y-6">
+                <div className="flex-1 max-w-2xl lg:max-w-none lg:w-1/2 space-y-6 mt-10 sm:mt-0">
                     <h2 className="text-[36px] font-semibold text-black">
                         About the {name}
                     </h2>

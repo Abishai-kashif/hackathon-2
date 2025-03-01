@@ -7,9 +7,15 @@ export async function GET(
 	{ params }: { params: { productId: string } }
 ) {
 	try {
-		const product = await client.fetch(STOCK_LEVELS_QUERY, {
-			productId: params.productId,
-		});
+		const product = await client.fetch(
+			STOCK_LEVELS_QUERY,
+			{
+				productId: params.productId,
+			},
+			{
+				cache: "no-cache",
+			}
+		);
 
 		return NextResponse.json({
 			stockLevel: product?.stockLevel || 0,

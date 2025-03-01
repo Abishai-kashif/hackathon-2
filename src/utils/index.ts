@@ -1,5 +1,5 @@
 import { client } from "@/sanity/lib/client";
-import { CustomError, FetchOptions } from "@/types";
+import { ClerkUser, CustomError, FetchOptions } from "@/types";
 import { CartEntry } from "use-shopping-cart/core";
 
 const DEFAULT_OPTIONS: FetchOptions = {
@@ -112,8 +112,13 @@ export function formatPrice(num: number): string {
 }
 // Function to fetch the total number of products
 export async function fetchTotalProductsCount() {
-	const count = await client.fetch(`count(*[_type == "product"])`);
-	return count;
+	try {
+		const count = await client.fetch(`count(*[_type == "product"])`);
+		return count;
+	} catch (error) {
+		console.error("Error fetching total products count:", error);
+		return 0;
+	}
 }
 
 // Calculate the total number of pages
@@ -159,4 +164,14 @@ export function calculateAverageStars(reviews: { stars: number }[]) {
 	if (reviews.length === 0) return 0; // Handle case where there are no reviews
 	const totalStars = reviews.reduce((sum, review) => sum + review.stars, 0); // Sum up all stars
 	return totalStars / reviews.length;
+}
+
+// Helper function to get user's display name
+export function getUserGreeting(user: ClerkUser) {
+	return (
+		user.firstName ||
+		user.username ||
+		user.emailAddresses[0]?.emailAddress.split("@")[0] ||
+		"Valued Customer"
+	);
 }

@@ -7,7 +7,7 @@ import ErrorMessage from "../error-message";
 
 async function SideTable() {
     const classes =
-        "wrapper h-auto lg:h-[672px] bg-azure flex flex-col lg:flex-row gap-x-5 justify-center  p-5 px-24";
+        "wrapper h-auto lg:h-[672px] bg-azure flex flex-col lg:flex-row gap-x-5 justify-center  p-5 lg:px-24";
 
     const sideTables = await getData<ProductPreview[]>(SIDE_TABLE_QUERY);
 

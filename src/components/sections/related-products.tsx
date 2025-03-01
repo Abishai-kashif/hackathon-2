@@ -29,7 +29,7 @@ async function RelatedProducts({
                 <TitleBar title="Related Products" />
                 <ErrorMessage
                     className="text-black"
-                    message={`No related products found`}
+                    message="No related products found"
                 />
             </>
         );

@@ -10,15 +10,18 @@ function ErrorStripe() {
                     {/* face */}
                     <Frown className="text-red-600 w-20 h-20 mx-auto my-6 animate-bounce" />
 
-                    <h1 className="text-4xl font-bold mb-2 text-red-700">
+                    <h1 className="text-[36px] font-semibold mb-2 text-red-700">
                         Payment Failed
                     </h1>
-                    <p className="text-lg mb-4 md:max-w-[29rem] mx-auto">
+                    <p className="text-[20px] mb-4 md:max-w-[29rem] mx-auto">
                         Unfortunately, your payment could not be processed.
                         Please try again or contact support if the issue
                         persists.
                     </p>
-                    <Button variant={"destructive"}>
+                    <Button
+                        variant={"destructive"}
+                        className="rounded-none px-4 py-2"
+                    >
                         <Link href="/" className="text-lg font-semibold">
                             Go back
                         </Link>

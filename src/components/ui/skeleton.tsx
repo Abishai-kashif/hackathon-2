@@ -238,6 +238,24 @@ function NewArrivalSkeleton() {
     );
 }
 
+function WishlistWelcomeSkeleton() {
+    return (
+        <div className="bg-black/85 mb-8 px-5 sm:px-20 h-44 flex items-center">
+            <div className="flex items-center gap-5">
+                {/* user avatar skeleton */}
+                <div className="hidden sm:block">
+                    <Skeleton className="h-[70px] w-[70px] rounded-full" />
+                </div>
+                {/* welcome message skeleton */}
+                <div>
+                    <Skeleton className="h-8 w-72" />
+                    <Skeleton className="h-4 w-52 mt-4" />
+                </div>
+            </div>
+        </div>
+    );
+}
+
 export {
     Skeleton,
     FilterProductsGridSkeleton,
@@ -246,4 +264,5 @@ export {
     SideTableSkeleton,
     TopPicksSkeleton,
     NewArrivalSkeleton,
+    WishlistWelcomeSkeleton,
 };

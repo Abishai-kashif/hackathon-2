@@ -6,9 +6,11 @@ import React from "react";
 function ProductsGrid({
     products,
     className,
+    onProductRemove,
 }: {
     products: ProductPreview[];
     className?: string;
+    onProductRemove?: (id: string) => void;
 }) {
     return (
         <ul
@@ -24,10 +26,16 @@ function ProductsGrid({
                 return (
                     <li key={_id}>
                         <Product
+                            id={_id}
                             image={image}
                             name={name}
                             price={price}
                             slug={slug.current}
+                            onRemove={
+                                onProductRemove
+                                    ? () => onProductRemove(_id)
+                                    : undefined
+                            }
                         />
                     </li>
                 );

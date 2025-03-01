@@ -57,6 +57,8 @@ type ProductPreview = Pick<Product, "_id" | "name" | "slug" | "price"> & {
 	image: Image;
 };
 
+type ProductSearch = Pick<Product, "_id" | "name" | "slug">;
+
 type Icon = React.ComponentType<{ className?: string }>;
 
 type IconMap = {
@@ -93,6 +95,12 @@ interface CustomError {
 	message: string;
 }
 
+interface ClerkUser {
+	firstName: string;
+	username: string;
+	emailAddresses: { emailAddress: string }[];
+}
+
 export type {
 	AdditionalInfo,
 	Review,
@@ -100,6 +108,7 @@ export type {
 	Slug,
 	Product,
 	ProductPreview,
+	ProductSearch,
 	IconMap,
 	SearchParams,
 	ResolvedSearchParams,
@@ -107,4 +116,5 @@ export type {
 	FetchOptions,
 	ProductCart,
 	CustomError,
+	ClerkUser,
 };

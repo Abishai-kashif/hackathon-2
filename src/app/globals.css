@@ -4,6 +4,7 @@
 
 body {
     font-family: var(--poppins);
+    overflow-x: hidden;
 }
 
 .tag {
@@ -17,6 +18,19 @@ body {
 
     .wrapper {
         @apply max-w-[1440px] mx-auto;
+    }
+
+    /* Hide number input spinners */
+    .hide-number-controls::-webkit-outer-spin-button,
+    .hide-number-controls::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    /* Firefox */
+    .hide-number-controls {
+        -moz-appearance: textfield;
+        appearance: textfield;
     }
 }
 
