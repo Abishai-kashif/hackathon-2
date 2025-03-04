@@ -43,6 +43,10 @@ export default function RootLayout({
                             <Navbar />
 
                             {children}
+                            <script
+                                src="//code.tidio.co/cvrnx771sojsuqzm3sl5w9bsduea7mqm.js"
+                                async
+                            ></script>
                             <Footer />
                         </CartProvider>
                     </NuqsAdapter>

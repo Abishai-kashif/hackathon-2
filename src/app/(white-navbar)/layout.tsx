@@ -42,6 +42,10 @@ export default function RootLayout({
                             <Navbar className="bg-white" />
 
                             {children}
+                            <script
+                                src="//code.tidio.co/cvrnx771sojsuqzm3sl5w9bsduea7mqm.js"
+                                async
+                            ></script>
                         </CartProvider>
                     </NuqsAdapter>
                     <Footer />

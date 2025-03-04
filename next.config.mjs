@@ -4,7 +4,6 @@ const nextConfig = {
     //     domains: ["cdn.sanity.io"],
     // },
     images: {
-        domains: ["cdn.sanity.io", "images.pexels.com", "images.unsplash.com"],
         remotePatterns: [
             {
                 protocol: "https",

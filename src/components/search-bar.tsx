@@ -75,13 +75,18 @@ function SearchBar() {
 
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (selectedItem < searchResults.length) {
-            if (e.key === "ArrowUp" && selectedItem > 0) {
-                setSelectedItem((prev) => prev - 1);
-            } else if (
-                e.key === "ArrowDown" &&
-                selectedItem < searchResults.length - 1
-            ) {
-                setSelectedItem((prev) => prev + 1);
+            if (e.key === "ArrowUp") {
+                if (selectedItem === 0) {
+                    setSelectedItem(searchResults.length - 1);
+                } else {
+                    setSelectedItem((prev) => prev - 1);
+                }
+            } else if (e.key === "ArrowDown") {
+                if (selectedItem === searchResults.length - 1) {
+                    setSelectedItem(0);
+                } else {
+                    setSelectedItem((prev) => prev + 1);
+                }
             } else if (e.key === "Enter" && selectedItem >= 0) {
                 const url = `/${searchResults[selectedItem].slug}`;
                 setIsOpen(false);

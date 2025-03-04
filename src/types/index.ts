@@ -101,6 +101,13 @@ interface ClerkUser {
 	emailAddresses: { emailAddress: string }[];
 }
 
+interface ContactUsUser {
+	name: string;
+	email: string;
+	subject?: string;
+	message: string;
+}
+
 export type {
 	AdditionalInfo,
 	Review,
@@ -117,4 +124,5 @@ export type {
 	ProductCart,
 	CustomError,
 	ClerkUser,
+	ContactUsUser,
 };
