@@ -36,7 +36,7 @@ const CheckoutForm = ({ amount }: { amount: number }) => {
     useEffect(() => {
         async function handleClientSecret() {
             const res = await fetch(
-                "http://localhost:3000/api/create-payment-intent",
+                "https://furniture-press/api/create-payment-intent",
                 {
                     method: "POST",
                     headers: {
