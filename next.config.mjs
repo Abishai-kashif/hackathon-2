@@ -4,23 +4,21 @@ const nextConfig = {
     //     domains: ["cdn.sanity.io"],
     // },
     images: {
+        domains: ["cdn.sanity.io", "images.pexels.com", "images.unsplash.com"],
         remotePatterns: [
             {
                 protocol: "https",
                 hostname: "cdn.sanity.io",
-                // port: "",
                 pathname: "/**/*",
             },
             {
                 protocol: "https",
                 hostname: "images.pexels.com",
-                // port: "",
                 pathname: "/**/*",
             },
             {
                 protocol: "https",
                 hostname: "images.unsplash.com",
-                // port: "",
                 pathname: "/**/*",
             },
         ],

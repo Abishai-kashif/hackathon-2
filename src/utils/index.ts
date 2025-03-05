@@ -175,3 +175,7 @@ export function getUserGreeting(user: ClerkUser) {
 		"Valued Customer"
 	);
 }
+
+export function convertToSubcurrency(amount: number, factor = 100) {
+	return amount * factor;
+}
