@@ -1,25 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import {
-    useStripe,
-    useElements,
-    PaymentElement,
-} from "@stripe/react-stripe-js";
 import { convertToSubcurrency } from "@/utils";
-import {
-    Form,
-    FormItem,
-    FormLabel,
-    FormControl,
-    FormMessage,
-    FormField,
-} from "./ui/form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import {
+    PaymentElement,
+    useElements,
+    useStripe,
+} from "@stripe/react-stripe-js";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { Form } from "./ui/form";
 
 import { z } from "zod";
-import { log } from "util";
 
 const formSchema = z.object({
     name: z.string().min(1).max(62),
@@ -65,7 +57,7 @@ const CheckoutForm = ({ amount }: { amount: number }) => {
         handleClientSecret();
     }, [amount]);
 
-    const onSubmit = async (values: FormType) => {
+    const onSubmit = async () => {
         setLoading(true);
 
         if (!stripe || !elements) {
