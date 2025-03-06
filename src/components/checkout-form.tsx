@@ -36,7 +36,7 @@ const CheckoutForm = ({ amount }: { amount: number }) => {
     useEffect(() => {
         async function handleClientSecret() {
             const res = await fetch(
-                "https://furniture-press/api/create-payment-intent",
+                "https://furniture-press.vercel.app/api/create-payment-intent",
                 {
                     method: "POST",
                     headers: {
