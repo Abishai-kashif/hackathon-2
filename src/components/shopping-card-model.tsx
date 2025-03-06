@@ -6,16 +6,14 @@ import {
     SheetHeader,
     SheetTitle,
 } from "@/components/ui/sheet";
-import Image from "next/image";
-import { useShoppingCart } from "use-shopping-cart";
-import { Button } from "./ui/button";
-import React from "react";
-import Link from "next/link";
-import CustomSeperator from "./custom-separator";
 import { formatPathName, formatPrice } from "@/utils";
 import { X } from "lucide-react";
-import toast from "react-hot-toast";
+import Image from "next/image";
+import Link from "next/link";
+import { useShoppingCart } from "use-shopping-cart";
 import { CartEntry } from "use-shopping-cart/core";
+import CustomSeperator from "./custom-separator";
+import { Button } from "./ui/button";
 
 function ShoppingCardModel() {
     const {
@@ -25,21 +23,20 @@ function ShoppingCardModel() {
         cartDetails,
         removeItem,
         totalPrice,
-        redirectToCheckout,
     } = useShoppingCart();
 
-    async function handleCheckoutClick(
-        event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-    ) {
-        event.preventDefault();
+    // async function handleCheckoutClick(
+    //     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+    // ) {
+    //     event.preventDefault();
 
-        try {
-            await redirectToCheckout();
-        } catch (error) {
-            console.error(error);
-            toast.error("Failed to checkout: " + error.message);
-        }
-    }
+    //     try {
+    //         await redirectToCheckout();
+    //     } catch (error) {
+    //         console.error(error);
+    //         toast.error("Failed to checkout: " + error.message);
+    //     }
+    // }
 
     return (
         <Sheet open={shouldDisplayCart} onOpenChange={handleCartClick}>
@@ -151,10 +148,10 @@ function ShoppingCardModel() {
                         </Button>
                         <Button
                             variant="outline"
-                            onClick={handleCheckoutClick}
+                            asChild
                             className="rounded-[50px] w-[131px] h-[31px] text-[12px]"
                         >
-                            Checkout
+                            <Link href={"/checkout"}>Checkout</Link>
                         </Button>
                     </div>
                 </div>

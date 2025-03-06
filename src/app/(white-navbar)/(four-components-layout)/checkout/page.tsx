@@ -4,6 +4,7 @@ import CheckoutForm from "@/components/checkout-form";
 import { convertToSubcurrency } from "@/utils";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import { useShoppingCart } from "use-shopping-cart";
 
 if (process.env.NEXT_PUBLIC_STRIPE_KEY === undefined) {
     throw new Error("NEXT_PUBLIC_STRIPE_KEY is not defined");
@@ -11,7 +12,7 @@ if (process.env.NEXT_PUBLIC_STRIPE_KEY === undefined) {
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_KEY);
 
 export default function Home() {
-    const amount = 1000;
+    const { totalPrice } = useShoppingCart();
 
     return (
         <main className="wrapper min-h-screen flex flex-col items-center justify-center">
@@ -19,22 +20,23 @@ export default function Home() {
                 stripe={stripePromise}
                 options={{
                     mode: "payment",
-                    amount: convertToSubcurrency(amount),
+                    amount: convertToSubcurrency(totalPrice),
                     currency: "usd",
                     appearance: {
                         rules: {
                             ".Input": {
+                                // Adjust font, color, etc. as desired
                                 fontSize: "18px",
                                 fontWeight: "500",
                                 color: "black",
-                                cursor: "pointer",
-                                display: "block",
-                                innerWidth: "527px",
-                                outerWidth: "527px",
-
-                                innerHeight: "75px",
-                                outerHeight: "75px",
-                                paddingLeft: "1.5rem",
+                                // Give the input some padding and top margin
+                                padding: "1rem",
+                                marginTop: "1rem",
+                                // Set a fixed height if desired
+                                height: "75px",
+                                // Add a border, radius, etc.
+                                border: "1px solid #ccc",
+                                borderRadius: "10px",
                             },
                         },
                         variables: {
@@ -46,7 +48,7 @@ export default function Home() {
                     },
                 }}
             >
-                <CheckoutForm amount={amount} />
+                <CheckoutForm />
             </Elements>
         </main>
     );
