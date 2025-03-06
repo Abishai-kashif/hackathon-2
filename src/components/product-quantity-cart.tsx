@@ -295,9 +295,9 @@ export default function ProductQuantityCart({ product }: { product: Product }) {
     }, [availableStock, quantity]);
 
     const handleQuantityChange = useCallback((newValue: StateType) => {
-        // console.log("newValue type ➙ ", typeof newValue);
-        // console.log(numQuantityRef.current >= availableStock);
-        // console.log("quantity ref => ", numQuantityRef.current);
+        console.log("newValue type ➙ ", typeof newValue);
+        console.log(numQuantityRef.current >= availableStock);
+        console.log("quantity ref => ", numQuantityRef.current);
         if (newValue !== "") {
             const numericValue =
                 typeof newValue === "string"
@@ -348,7 +348,7 @@ export default function ProductQuantityCart({ product }: { product: Product }) {
                 image: images[0],
                 name,
                 price,
-                id: product._id,
+                sanityId: product._id,
                 currency: "USD",
                 sku,
                 product_data: {

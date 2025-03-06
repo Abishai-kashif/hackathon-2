@@ -94,8 +94,8 @@ const CheckoutForm = () => {
                 paymentMethod,
                 clientSecret: paymentMethod === "online" ? clientSecret : null,
                 products: Object.values(cartDetails).map((product) => ({
-                    _key: product.id,
-                    id: product.id,
+                    _key: product.sanityId,
+                    id: product.sanityId,
                     quantity: product.quantity,
                 })),
             });
