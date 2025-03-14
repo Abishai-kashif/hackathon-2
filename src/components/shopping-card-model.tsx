@@ -10,12 +10,12 @@ import { formatPathName, formatPrice } from "@/utils";
 import { X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { toast } from "react-hot-toast";
 import { useShoppingCart } from "use-shopping-cart";
 import { CartEntry } from "use-shopping-cart/core";
 import CustomSeperator from "./custom-separator";
 import { Button } from "./ui/button";
-import { toast } from "react-hot-toast";
-import { useRouter } from "next/navigation";
 
 function ShoppingCardModel() {
     const {
@@ -28,9 +28,7 @@ function ShoppingCardModel() {
     } = useShoppingCart();
     const { replace } = useRouter();
 
-    const handleCheckoutClick = (
-        event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-    ) => {
+    const handleCheckoutClick = () => {
         if (totalPrice <= 0) {
             toast.error("In order to checkout, please add items to cart");
             return;
