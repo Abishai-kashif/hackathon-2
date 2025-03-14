@@ -10,8 +10,6 @@ import { formatPathName, formatPrice } from "@/utils";
 import { X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { toast } from "react-hot-toast";
 import { useShoppingCart } from "use-shopping-cart";
 import { CartEntry } from "use-shopping-cart/core";
 import CustomSeperator from "./custom-separator";
@@ -26,16 +24,6 @@ function ShoppingCardModel() {
         removeItem,
         totalPrice,
     } = useShoppingCart();
-    const { replace } = useRouter();
-
-    const handleCheckoutClick = () => {
-        if (totalPrice <= 0) {
-            toast.error("In order to checkout, please add items to cart");
-            return;
-        }
-
-        replace("/checkout");
-    };
 
     return (
         <Sheet open={shouldDisplayCart} onOpenChange={handleCartClick}>
@@ -147,10 +135,10 @@ function ShoppingCardModel() {
                         </Button>
                         <Button
                             variant="outline"
+                            asChild
                             className="rounded-[50px] w-[131px] h-[31px] text-[12px]"
-                            onClick={handleCheckoutClick}
                         >
-                            Checkout
+                            <Link href={"/checkout"}>Checkout</Link>
                         </Button>
                     </div>
                 </div>
