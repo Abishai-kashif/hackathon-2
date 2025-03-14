@@ -18,8 +18,8 @@ function Product({ id, image, name, price, slug, onRemove }: IProps) {
     return (
         <article className="mx-auto h-[397px] w-[287px] flex flex-col gap-[14px] group">
             {/* image */}
-            <Link href={`/${slug}`}>
-                <div className="h-[287px] w-full relative group">
+            <div className="h-[287px] w-full relative group">
+                <Link href={`/${slug}`}>
                     <Image
                         src={urlFor(image).url()}
                         alt="product"
@@ -27,15 +27,14 @@ function Product({ id, image, name, price, slug, onRemove }: IProps) {
                         height={287}
                         className="object-contain object-center h-full w-full group-hover:opacity-60"
                     />
+                </Link>
 
-                    <WishlistButton
-                        onRemove={onRemove}
-                        productId={id}
-                        className="absolute top-4 right-0 z-10 hidden group-hover:block"
-                    />
-                </div>
-            </Link>
-
+                <WishlistButton
+                    onRemove={onRemove}
+                    productId={id}
+                    className="absolute top-4 right-0 z-10 hidden group-hover:block"
+                />
+            </div>
             {/* text */}
             <div className="text-black flex flex-col gap-[11px]">
                 <h4 className="text-[16px]">{name}</h4>

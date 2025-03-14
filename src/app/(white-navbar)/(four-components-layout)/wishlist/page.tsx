@@ -19,7 +19,8 @@ export default function WishlistPage() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
-    const containerStyles = "wrapper bg-white mt-[50px]";
+    const containerStyles =
+        "wrapper bg-white mt-[50px] grid place-content-center pb-20";
 
     useEffect(() => {
         const savedWishlist = localStorage.getItem("wishlist");
@@ -65,7 +66,7 @@ export default function WishlistPage() {
         return (
             <div className={containerStyles}>
                 <WishlistWelcome />
-                <WishlistHeader setWishlist={setWishlist} />
+                <WishlistHeader />
                 <FilterProductsGridSkeleton onlyShow="4" />
             </div>
         );
@@ -74,14 +75,14 @@ export default function WishlistPage() {
     if (error) {
         return (
             <div className={containerStyles}>
-                <h1 className="text-2xl font-bold text-red-500">{error}</h1>
+                <h1 className="text-2xl font-semibold text-red-500">{error}</h1>
 
                 <Button
                     asChild
                     variant="outline"
-                    className="mt-6  h-[50px] w-[200px]"
+                    className="mt-6  h-[50px] w-[200px] mx-auto"
                 >
-                    <Link href="/" className="text-black underline mt-4 block">
+                    <Link href="/" className="text-black underline mt-4 block ">
                         Go to Homepage
                     </Link>
                 </Button>
