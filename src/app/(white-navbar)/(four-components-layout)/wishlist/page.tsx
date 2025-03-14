@@ -19,8 +19,7 @@ export default function WishlistPage() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
-    const containerStyles =
-        "wrapper bg-white mt-[50px] grid place-content-center pb-20";
+    const containerStyles = "wrapper bg-white mt-[50px] pb-6";
 
     useEffect(() => {
         const savedWishlist = localStorage.getItem("wishlist");
@@ -82,7 +81,10 @@ export default function WishlistPage() {
                     variant="outline"
                     className="mt-6  h-[50px] w-[200px] mx-auto"
                 >
-                    <Link href="/" className="text-black underline mt-4 block ">
+                    <Link
+                        href="/"
+                        className="text-black underline mt-4 block mx-auto"
+                    >
                         Go to Homepage
                     </Link>
                 </Button>
@@ -109,7 +111,7 @@ export default function WishlistPage() {
                 <Button
                     asChild
                     variant="outline"
-                    className="mt-6  h-[50px] w-[200px]"
+                    className="mt-6  h-[50px] w-[200px] mx-auto"
                 >
                     <Link href="/shop">Go to Shop</Link>
                 </Button>
