@@ -13,6 +13,7 @@ const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_KEY);
 
 export default function Home() {
     const { totalPrice } = useShoppingCart();
+    console.log(totalPrice);
 
     return (
         <main className="wrapper min-h-screen flex flex-col items-center justify-center">
