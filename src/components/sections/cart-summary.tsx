@@ -3,21 +3,20 @@
 import { Button } from "../ui/button";
 import { getSubtotal, getTotal } from "@/utils";
 import Link from "next/link";
-import { toast } from "react-hot-toast";
 import { CartEntry } from "use-shopping-cart/core";
 
 function CartSummary({ cartDetails, isCartEmpty, redirectToCheckout }: IProps) {
-    const handleCheckout = async () => {
-        try {
-            const response = await redirectToCheckout();
-            if (response?.error) {
-                console.error("Error: ", response.error);
-            }
-        } catch (error) {
-            console.error("Error: ", error);
-            toast.error(error.message);
-        }
-    };
+    // const handleCheckout = async () => {
+    //     try {
+    //         const response = await redirectToCheckout();
+    //         if (response?.error) {
+    //             console.error("Error: ", response.error);
+    //         }
+    //     } catch (error) {
+    //         console.error("Error: ", error);
+    //         toast.error(error.message);
+    //     }
+    // };
 
     return (
         <div className="w-full lg:w-[393px] h-fit bg-light-yellow p-6 pb-20 flex flex-col gap-4 items-center justify-center">
@@ -46,9 +45,8 @@ function CartSummary({ cartDetails, isCartEmpty, redirectToCheckout }: IProps) {
                 <Button
                     variant={"outline"}
                     className="rounded-[15px] sm:w-[222px] w-full h-[58.95px] mx-auto mt-[38px]"
-                    onClick={handleCheckout}
                 >
-                    Check Out
+                    <Link href={"/checkout"}>Check Out</Link>
                 </Button>
             ) : (
                 <Button
