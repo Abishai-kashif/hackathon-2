@@ -7,7 +7,7 @@ import CartSummary from "./sections/cart-summary";
 import { CartEntry } from "use-shopping-cart/core";
 
 function DetailedCart() {
-    const { cartDetails, removeItem, redirectToCheckout } = useShoppingCart();
+    const { cartDetails, removeItem } = useShoppingCart();
 
     const [isCartEmpty, setIsCartEmpty] = useState(true);
     const [products, setProducts] = useState<CartEntry[]>([]);
@@ -28,11 +28,7 @@ function DetailedCart() {
                 isCartEmpty={isCartEmpty}
                 removeItem={removeItem}
             />
-            <CartSummary
-                cartDetails={cartDetails}
-                isCartEmpty={isCartEmpty}
-                redirectToCheckout={redirectToCheckout}
-            />
+            <CartSummary cartDetails={cartDetails} isCartEmpty={isCartEmpty} />
         </>
     );
 }

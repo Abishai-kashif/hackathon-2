@@ -5,7 +5,7 @@ import { getSubtotal, getTotal } from "@/utils";
 import Link from "next/link";
 import { CartEntry } from "use-shopping-cart/core";
 
-function CartSummary({ cartDetails, isCartEmpty, redirectToCheckout }: IProps) {
+function CartSummary({ cartDetails, isCartEmpty }: IProps) {
     // const handleCheckout = async () => {
     //     try {
     //         const response = await redirectToCheckout();
@@ -64,8 +64,6 @@ function CartSummary({ cartDetails, isCartEmpty, redirectToCheckout }: IProps) {
 interface IProps {
     cartDetails: Record<string, CartEntry>;
     isCartEmpty: boolean;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    redirectToCheckout: () => Promise<any>;
 }
 
 export default CartSummary;
